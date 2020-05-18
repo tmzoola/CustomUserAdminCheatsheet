@@ -3,9 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>This is title</title>
-    <h1>This is a header</h1>
+    {% if user.is_authenticated %}
+        <p>Hello, {{user.username}} | <a href="{% url 'logout' %}"> Logout </a></p>
+    {% else %}
+        <p><a href="{% url 'register' %}">Register</a> | <a href="#">Login</a> </p>
+    {% endif %}
+    <hr>
+
 </head>
 <body>
+
 
 {% block content %}
 {% endblock %}
@@ -13,6 +20,7 @@
 </body>
 
 <footer>
- <h3>This is footer</h3>
+    <hr>
+    <p>Coding with Murodjon</p>
 </footer>
 </html>
